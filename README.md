@@ -19,11 +19,27 @@ Este é um projeto educacional em Java usando Spring Boot e Maven para ensinar c
 - Bootstrap
 - Banco de Dados MongoDB
 
-## Conexão ao Banco de Dados
+## Configuração do Banco de Dados (MongoDB Atlas)
 
-Este projeto utiliza um banco de dados MongoDB hospedado remotamente para fins educacionais:
-```
-mongodb://mongo:XdnCdkmKwzJiKHiryTDzdgRGOxzNQYtA@crossover.proxy.rlwy.net:24258
+Este projeto requer uma instância do MongoDB. Para fins educacionais, recomendamos criar uma conta gratuita no **MongoDB Atlas**.
+
+### Passo a Passo para Criar sua Conta:
+
+1. Acesse [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) e crie uma conta gratuita.
+2. Crie um novo projeto e, em seguida, um **Cluster gratuito (M0)**.
+3. No painel do Cluster, vá em **Database Access** e crie um usuário com permissões de leitura e escrita (Read and write to any database). **Anote a senha!**
+4. Vá em **Network Access** e adicione seu endereço IP atual (ou `0.0.0.0/0` para permitir acesso de qualquer lugar - use com cautela).
+5. Clique em **Connect**, escolha **Connect your application** e copie a **Connection String** (URI).
+
+### Onde Configurar no Projeto:
+
+Para que a aplicação utilize o seu banco de dados pessoal, você deve atualizar o arquivo:
+`src/main/resources/application.properties`
+
+Substitua o valor da propriedade `spring.data.mongodb.uri` pela sua Connection String, garantindo que a senha e o nome do banco de dados estejam corretos:
+
+```properties
+spring.data.mongodb.uri=sua_connection_string_aqui
 ```
 
 ## Começando
