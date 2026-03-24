@@ -17,7 +17,7 @@ java -version
 mvn -version
 ```
 
-## 2. Estrutura de testes atual...
+## 2. Estrutura de testes atual
 
 Os testes estão organizados em:
 
